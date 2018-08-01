@@ -11,37 +11,29 @@ export class Haiku {
     let count = [0, 0, 0];
     for(let i = 0; i < lines.length; i++) {
       let words = lines[i].toLowerCase().split(" ");
-      console.log(words);
       for(let j = 0; j < words.length; j++) {
         if (words[j].charAt(words[j].length - 1) == "e" && words[j].match(/[aiouy]/)) {
           let syllables = words[j].match(/[aiouy]+e*|e(?!d$|ly).|[td]ed|le$/gm);
-          console.log("if block: " + syllables);
           count[i] += syllables.length;
         } else {
           words[j] += " ";
           let syllables = words[j].match(/[aiouy]+e*|e(?!d$|ly).|[td]ed|le$/gm);
-          console.log("else block: " + syllables);
           count[i] += syllables.length;
         }
       }
     }
-    console.log(count);
+    return count
   }
+
+  isHaiku() {
+    let count = this.countSyllables()
+    let valid = true
+    if (count[0] === 5 && count[1] === 7 && count[2] === 5) {
+      return valid
+    } else {
+      valid = false
+      return valid
+    }
+  }
+
 }
-
-
-// let syllables = lines[i].toLowerCase().match(/[aiouy]+e*|e(?!d$|ly).|[td]ed|le$/gm);
-// count[i] += syllables.length;
-// |(ded)|(ted)
-
-
-// (oo)|(oe)|(ia)|(ai)|(oi)|[(aa)(oo)(ii)(uu)]|(le)$|(ted)$|(ded)$
-
-
-// if (!words[j].match(/e/)) {
-//   let syllables = words[j].match(/[(aa)(ii)(oo)(uu)]+/gm)
-//   count[i] += syllables.length;
-// } else if(words[j].match(/(ded)$/ || /(ted)$/ || /(le)$/) {
-//   let syllables = words[j].match(/[aiouy]+e*|e(?!d$|ly).|[td]ed|le$/gm)
-//   count[i] += syllables.length;
-// }
