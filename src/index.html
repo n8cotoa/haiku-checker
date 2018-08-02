@@ -4,6 +4,33 @@
   <title>Is it a Haiku?</title>
 </head>
 <body>
-  <h1>Is it a Haiku?</h1>
+  <div class="container">
+    <h1>Is it a Haiku?</h1>
+    <form id="inputForm">
+      <div class="form-group">
+        <label for="input1">Input first string</label>
+        <input type="text" id="input1" name="input1" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="input2">Input second string</label>
+        <input type="text" id="input2" name="input2" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="input3">Input third string</label>
+        <input type="text" id="input3" name="input3" class="form-control">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <div class="results">
+      <h1 id="resultField"></h1>
+    </div>
+    <div>
+      <h2>Generate a random Haiku!</h2>
+      <p id="line1"></p>
+      <p id="line2"></p>
+      <p id="line3"></p>
+      <button type="button" name="button" class="btn bnt-warning">Generate!</button>
+    </div>
+  </div>
 </body>
 </html>

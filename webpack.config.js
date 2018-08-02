@@ -6,6 +6,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/main.js',
+  node: {
+     fs: "empty"
+  },
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
@@ -25,6 +28,10 @@ module.exports = {
   ],
   module: {
     rules: [
+      {
+        test: /\.txt$/,
+        use: 'raw-loader'
+      },
       {
         test: /\.css$/,
         use: [
@@ -50,4 +57,5 @@ module.exports = {
       }
     ]
   }
+  // target: 'node'
 };
